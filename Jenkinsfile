@@ -1,6 +1,6 @@
 pipeline {
     agent{
-        pi
+        label pi
     }
 
     stages{
