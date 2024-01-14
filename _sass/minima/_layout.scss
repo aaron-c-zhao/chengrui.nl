@@ -1,0 +1,264 @@
+
+
+
+/**
+ * Site header
+ */
+.site-header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-areas: "button title about";
+  justify-items: center;
+
+  border-top: 5px solid $border-color-03;
+  border-bottom: 1px solid $border-color-01;
+  padding: $spacing-unit * 0.2 0;
+  min-height: $spacing-unit * 1.865;
+  line-height: $base-line-height * $base-font-size * 2.25;
+  color: $site-header-color;
+
+  /*
+    Navigation button and slid in side menue
+  */ 
+  .site-nav {
+    background-color: $background-color;
+    text-align: left;
+
+    .menu-icon {
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      text-align: center;
+
+      > svg path {
+        fill: $site-header-color;
+      }
+    }
+
+    .nav-trigger {
+      display: none
+    }
+
+    label[for="nav-trigger"] {
+      display: block;
+      width: 36px;
+      height: 36px;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-2px);
+        cursor: pointer;
+      }
+    }
+
+    .site__nav--activate {
+      display: none;
+    }
+
+    .page-link {
+      color: $text-color;
+      line-height: $base-line-height;
+      display: block;
+      padding: 5px 10px;
+
+      // Gaps between nav items, but not on the last one
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+
+    @media screen and (min-width: $on-medium) {
+      .page-link {
+        display: inline;
+        padding: 0;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+        margin-left: auto;
+      }
+    }
+  }
+
+  .site-title {
+    grid-area: title;
+    color: inherit;
+    @include relative-font-size(2.245);
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+
+    @include media-query($on-palm) {
+      padding-right: 45px;
+    }
+  }
+
+  .site-nav__about.page-link {
+    color: inherit; 
+  }
+
+  @media screen and (max-width: $on-medium) {
+    .site-nav__about.page-link {
+      display: none;
+    }
+  }
+}
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: $spacing-unit 0;
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-heading {
+  @include relative-font-size(2);
+}
+
+.post-list-heading {
+  @include relative-font-size(1.75);
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $brand-color;
+}
+
+.post-link {
+  display: block;
+  @include relative-font-size(1.5);
+  color: $site-header-color;
+
+  @media screen and (min-width: $on-medium) {
+    @include relative-font-size(2.0);
+    line-height: 130%;
+  }
+
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title,
+.post-content h1 {
+  @include relative-font-size(2.625);
+  letter-spacing: -1px;
+  line-height: 1.15;
+
+  @media screen and (min-width: $on-large) {
+    @include relative-font-size(2.625);
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h1, h2, h3, h4, h5, h6 { margin-top: $spacing-unit }
+
+  h2 {
+    @include relative-font-size(1.75);
+
+    @media screen and (min-width: $on-large) {
+      @include relative-font-size(2);
+    }
+  }
+
+  h3 {
+    @include relative-font-size(1.375);
+
+    @media screen and (min-width: $on-large) {
+      @include relative-font-size(1.625);
+    }
+  }
+
+  h4 {
+    @include relative-font-size(1.25);
+  }
+
+  h5 {
+    @include relative-font-size(1.125);
+  }
+  h6 {
+    @include relative-font-size(1.0625);
+  }
+
+  @media screen and (min-width: $on-medium) {
+    padding-left: $spacing-unit * 1.5;
+  }
+}
+
+
+.social-media-list {
+  display: table;
+  margin: 0 auto;
+  li {
+    float: left;
+    margin: 5px 10px 5px 0;
+    &:last-of-type { margin-right: 0 }
+    a {
+      display: block;
+      padding: 10px 12px;
+      border: 1px solid $border-color-01;
+      &:hover { border-color: $border-color-02 }
+    }
+  }
+}
+
+
+
+/**
+ * Pagination navbar
+ */
+.pagination {
+  margin-bottom: $spacing-unit;
+  @extend .social-media-list;
+  li {
+    a, div {
+      min-width: 41px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    div {
+      display: block;
+      padding: $spacing-unit * .25;
+      border: 1px solid transparent;
+
+      &.pager-edge {
+        color: $border-color-01;
+        border: 1px dashed;
+      }
+    }
+  }
+}
+
+
+
+/**
+ * Grid helpers
+ */
+@media screen and (min-width: $on-large) {
+  .one-half {
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+}
