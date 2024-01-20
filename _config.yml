@@ -36,7 +36,7 @@ plugins:
 header_pages:
   - about.html
 
-about: about.html
+about: pages/about.html
 show_excerpts: true
 
 

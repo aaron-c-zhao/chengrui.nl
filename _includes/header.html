@@ -16,6 +16,9 @@
     </nav>
   {%- endif -%}
   <a class="site-title wrapper" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  {%- if page.name != "search.html" -%}
+    {%- include searchbar.html -%}
+  {%- endif -%}
   {%- assign about_page = site.pages | where: "path", site.about | first-%}
   {%- if about_page -%}
     {%- if about_page.nav_title -%}
@@ -23,6 +26,6 @@
     {%- else -%}
       {%- assign about_title = about_page.title -%}
     {%- endif -%}
-  <a class="site-nav__about page-link" rel="me" href="{{ about_page.url | relative_url }}">{{ about_title }}</a>
+  <!-- <a class="site-nav__about page-link" rel="me" href="{{ about_page.url | relative_url }}">{{ about_title }}</a> -->
   {%- endif -%}
 </header>

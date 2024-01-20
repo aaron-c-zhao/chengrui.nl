@@ -20,6 +20,8 @@ GEM
     eventmachine (1.2.7)
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
+    font-awesome-sass (6.5.1)
+      sassc (~> 2.0)
     forwardable-extended (2.6.0)
     http_parser.rb (0.8.0)
     i18n (1.14.1)
@@ -79,6 +81,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  font-awesome-sass
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.2.2)
   jekyll-feed (~> 0.12)

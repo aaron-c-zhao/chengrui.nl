@@ -1,13 +1,10 @@
-
-
-
 /**
  * Site header
  */
 .site-header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-columns: 1.5fr 7fr 1.5fr;
   grid-template-areas: "button title about";
   justify-items: center;
 
@@ -87,6 +84,7 @@
     margin-bottom: 0;
 
     @include media-query($on-palm) {
+      @include relative-font-size(1.8);
       padding-right: 45px;
     }
   }
@@ -129,11 +127,11 @@
     margin-bottom: $spacing-unit;
 
     &:not(:last-of-type) {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid $border-grey;
     }
 
     @media screen and (min-width: $on-medium) {
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 4px 0 $border-grey;
       padding: $spacing-unit;
       border-radius: 1rem;
 
@@ -247,7 +245,41 @@
   }
 }
 
+/**
+* Search bar
+*/
 
+.searchbar {
+  position: relative;
+
+  .fa-search {
+    position: absolute;
+    top: 37%;
+    left: 5px;
+  }
+
+  #search {
+    line-height: 1.5 * $base-font-size;
+    border: 1px solid $border-grey;
+    border-radius: 0.2rem;
+  }
+
+  #search:focus-visible {
+    font-family: Roboto;
+    outline: none;
+    border: 2px solid $text-decoration-color;
+  }
+
+  #search:hover {
+    cursor: text;
+  }
+
+  @media screen and (max-width: $on-medium){
+    #search {
+      display: none;
+    }
+  }
+}
 
 /**
  * Pagination navbar

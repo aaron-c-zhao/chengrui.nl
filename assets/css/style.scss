@@ -2,5 +2,6 @@
 ---
 
 @import
+  "../font-awesome-4.7.0/css/font-awesome.min.css",
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
