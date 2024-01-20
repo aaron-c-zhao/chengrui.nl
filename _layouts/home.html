@@ -25,6 +25,10 @@ layout: base
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
       <li>
+        {%- if post.tags -%}
+          {%- assign tags = post.tags -%}
+          {%- include tag.html -%}
+        {%- endif -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">

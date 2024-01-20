@@ -25,17 +25,6 @@
     background-color: $background-color;
     text-align: left;
 
-    .menu-icon {
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      text-align: center;
-
-      > svg path {
-        fill: $site-header-color;
-      }
-    }
-
     .nav-trigger {
       display: none
     }
@@ -50,10 +39,17 @@
         transform: translateY(-2px);
         cursor: pointer;
       }
-    }
 
-    .site__nav--activate {
-      display: none;
+      .menu-icon {
+        width: 36px;
+        height: 26px;
+        line-height: 0;
+        text-align: center;
+
+        > svg path {
+          fill: $site-header-color;
+        }
+      }
     }
 
     .page-link {
@@ -131,6 +127,20 @@
 
   > li {
     margin-bottom: $spacing-unit;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    @media screen and (min-width: $on-medium) {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      padding: $spacing-unit;
+      border-radius: 1rem;
+
+      &:not(:last-of-type) {
+        border-bottom: none;
+      }
+    }
   }
 }
 
@@ -148,7 +158,19 @@
     @include relative-font-size(2.0);
     line-height: 130%;
   }
+}
 
+.post--tag {
+  background-color: $lm-code-background-color; 
+  border-radius: 0.2rem;
+  padding: 0.25rem;
+  font-size: 0.7rem;
+  margin-right: $spacing-unit * 0.3;
+  color: $site-header-color; 
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 

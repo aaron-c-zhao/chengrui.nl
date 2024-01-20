@@ -1,0 +1,6 @@
+
+<p>{%- if tags -%}
+    {%- for tag in tags -%}
+        <span class = "post--tag">{{ tag | upcase }}</span> 
+    {%- endfor -%}
+{%- endif -%}</p>
