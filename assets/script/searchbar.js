@@ -1,7 +1,7 @@
 const searchbarInput = document.querySelector('#search');
 const searchIcon = document.querySelector('.fa-search');
 
-const handleSearchBarDisplay = (event) => {
+const handleSearchBarAction = (event) => {
     switch(event.type) {
         case "mouseover":
         case "focus":
@@ -14,7 +14,8 @@ const handleSearchBarDisplay = (event) => {
             }
     }
 };
-searchbarInput.addEventListener("mouseover", handleSearchBarDisplay)
-searchbarInput.addEventListener("focus", handleSearchBarDisplay)
-searchbarInput.addEventListener("focusout", handleSearchBarDisplay)
-searchbarInput.addEventListener("mouseleave", handleSearchBarDisplay)
+
+searchbarInput.addEventListener("mouseover", handleSearchBarAction)
+searchbarInput.addEventListener("focus", handleSearchBarAction)
+searchbarInput.addEventListener("focusout", handleSearchBarAction)
+searchbarInput.addEventListener("mouseleave", handleSearchBarAction)

@@ -1,8 +1,36 @@
-<div class="site__nav--activate">
-{%- for path in page_paths -%}
-    {%- assign my_page = site.pages | where: "path", path | first -%}
-    {%- if my_page.title -%}
-    <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.nav_title | escape }}</a>
-    {%- endif -%}
-{%- endfor -%}
+<div class="nav--sidebar" id="sidebar">
+    <div class="sidebar--wrapper">
+        <div class="sidebar--image" id="avatar">
+            <a href = "/about.html">
+                <img src="/assets/image/selfie.png"/>
+            </a>
+        </div>
+
+        <ul class="sidebar--pages">
+            {%- for target in site.sidebar_pages -%}
+                {%- assign target_page = site.pages | where: "name", target | first -%}
+                {%- if target_page -%}
+                    <li class="sidebar--link">
+                        <a href="{{ target_page.url }}">{{ target_page.name | split: "." | first | capitalize }}</a>
+                    </li>
+                {%- endif -%}
+            {%- endfor -%}
+        </ul>
+        <div class="sidebar--tags">
+            <!-- Liquid does not support creation of array, so accumulate all tags into a string then split to an array-->
+            {%- assign tags="" -%}
+            {%- for post in site.posts -%}
+                {%- for tmp_tag in post.tags -%}
+                    {%- assign tags = tags |append: "," | append: tmp_tag -%}
+                {%- endfor -%}
+            {%- endfor -%}
+            {%- assign all_tags = tags | strip | split: "," | uniq | sort -%}
+            {%- for tag in all_tags -%}
+                {%- if tag != "" -%}
+                    <span class="post--tag">{{tag | upcase}}</span>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+        {%- include social.html -%}
+    </div>
 </div>

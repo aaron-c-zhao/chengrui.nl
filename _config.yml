@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Chengrui Zhao
+title: Chengrui's Blog
 email: aaron.zhaocr@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   blog
@@ -33,12 +33,17 @@ plugins:
   - jekyll-feed
 
 # Pages to include in the header nav
-header_pages:
+sidebar_pages:
   - about.html
+  - search.html
 
 about: pages/about.html
 show_excerpts: true
 
+minima:
+  social_links:
+    - { platform: github,  user_url: "https://github.com/aaron-c-zhao" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/chengrui-zhao" }
 
 # Exclude from processing.
 # The following items will not be processed, by default.
