@@ -34,6 +34,7 @@ plugins:
 
 # Pages to include in the header nav
 sidebar_pages:
+  - posts.html
   - about.html
   - search.html
 
