@@ -40,7 +40,7 @@ body {
 .base--container {
   display: grid;
   min-width: 100vw;
-  grid-template-columns: 0.5fr 7fr 1.5fr;
+  grid-template-columns: 1.5fr 7fr 1.5fr;
   grid-template-rows: max-content auto;
   grid-template-areas: "header header header"
                        ". content .";
@@ -207,7 +207,9 @@ pre {
  * Wrapper
  */
 .wrapper {
+  width: 80%;
   max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  text-align: center;
 
   @media screen and (min-width: $on-large) {
     max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));

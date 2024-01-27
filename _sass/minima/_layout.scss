@@ -221,6 +221,7 @@
 .post-list {
   margin-left: 0;
   list-style: none;
+  text-align: left;
 
   > li {
     margin-bottom: $spacing-unit;
@@ -275,6 +276,9 @@
 /**
  * Posts
  */
+.post {
+  text-align: left;
+}
 .post-header {
   margin-bottom: $spacing-unit;
 }
@@ -366,6 +370,9 @@
   }
 }
 
+/**
+ * Posts page
+ */
 .posts--year {
    margin: 0;
    &:not(:last-of-type) {
@@ -376,6 +383,10 @@
       .posts--caption {
           margin-top: $spacing-unit * 0.5;
       }
+   }
+
+   li {
+    text-align: left
    }
    
    .posts--caption {
@@ -404,6 +415,51 @@
       color: $site-header-color;
       font-weight:200;
    }
+}
+
+/**
+ * Search page
+ */ 
+
+#searchInput {
+  width: 100%;
+  height: 4vh;
+  min-height: 30px;
+  margin-bottom: $spacing-unit;
+  border: 1px solid $border-grey;
+  border-radius: 5px;
+  padding: 0 5px;
+  font-family: monospace;
+  @include relative-font-size(1);
+
+  &:focus-visible {
+    border: 2px solid $text-decoration-color;
+    outline: none;
+  }
+}
+
+#searchResults {
+  text-align: left;
+
+  li {
+    &:not(:last-of-type) {
+      margin-bottom: $spacing-unit * 0.4;
+    }
+    a {
+      @include relative-font-size(1.5);
+      color: $site-header-color;
+    }
+  }
+
+  .foundNothing {
+    list-style: none;
+    color: $border-grey;
+  }
+}
+
+.search-highlight {
+  background-color: $text-decoration-color;
+  font-weight: bold;
 }
 
 
