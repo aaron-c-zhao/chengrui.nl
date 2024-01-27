@@ -366,6 +366,47 @@
   }
 }
 
+.posts--year {
+   margin: 0;
+   &:not(:last-of-type) {
+      border-bottom: 1px solid $border-grey;
+   }
+
+   &:not(:first-of-type) {
+      .posts--caption {
+          margin-top: $spacing-unit * 0.5;
+      }
+   }
+   
+   .posts--caption {
+     @include relative-font-size(2.9);
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-weight: 400;
+     color: $text-decoration-color;
+     margin-bottom: $spacing-unit * 0.5;
+   }
+
+   .posts--date {
+      @include relative-font-size(1.4);
+      font-weight: 700;
+      // color: #3a3939d5;
+      color: $border-grey;
+   }
+
+   .fa-angle-double-right {
+    @include relative-font-size(1.5);
+    font-weight: 700;
+    color: $text-decoration-color;
+   }
+
+   .posts--link {
+      @include relative-font-size(1.5);
+      color: $site-header-color;
+      font-weight:200;
+   }
+}
+
+
 /**
  * Pagination navbar
  */
