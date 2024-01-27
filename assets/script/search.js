@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
+
     let postsData = []; // To store the posts data
 
     // Initialize Fuse.js options
@@ -24,6 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(posts => {
             postsData = posts;
             fuse = new Fuse(posts, fuseOptions);
+
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const queryParam = urlSearchParams.get('query');
+
+            // Set the initial search input value
+            if (queryParam) {
+                searchInput.value = queryParam;
+                performSearch(queryParam);
+            }
 
             // Event listener for input change
             searchInput.addEventListener('input', function () {
@@ -59,4 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
         return text.replace(regex, '<span class="search-highlight">$1</span>');
     }
+
 });
+

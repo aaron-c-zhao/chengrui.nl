@@ -285,11 +285,11 @@
 
 .post-title,
 .post-content h1 {
-  @include relative-font-size(2.5);
+  @include relative-font-size(1.8);
   letter-spacing: -1px;
   line-height: 1.15;
 
-  @media screen and (min-width: $on-large) {
+  @media screen and (min-width: $on-medium) {
     @include relative-font-size(2.5);
   }
 }

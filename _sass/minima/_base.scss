@@ -41,9 +41,14 @@ body {
   display: grid;
   min-width: 100vw;
   grid-template-columns: 1.5fr 7fr 1.5fr;
+  @media screen and (min-width: $on-medium) {
+    grid-template-rows: max-content auto;
+    grid-template-areas: "header header header"
+                        ". content .";
+  }
   grid-template-rows: max-content auto;
   grid-template-areas: "header header header"
-                       ". content .";
+                      "content content content";
 }
 
 
@@ -214,6 +219,10 @@ pre {
   @media screen and (min-width: $on-large) {
     max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
   }
+}
+
+.article {
+  text-align: left;
 }
 
 
