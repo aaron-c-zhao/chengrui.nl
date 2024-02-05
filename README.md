@@ -14,11 +14,11 @@ I woule like to do:</p>
 <p>This is a brief introduction of tools/technologies that I use to build the site. Note that I'm not a pro font-ender/infrastructure in anymeans. So some of the stuff may not make sense or seems obselate,
  it's purely for my own sake to write it down. Do not take it as an example without doing your own research:</p>
 
-#### Site itself
+#### Static website
  * [Jekyll](https://jekyllrb.com/): static site generator
     *  [minima](https://github.com/jekyll/minima/tree/v2.5.0): a theme of Jekyll, I customized the 3.0 version
  * [SASS](https://sass-lang.com/): SCSS which makes CSS fancier and easier
- * Javascript: not a langurate that I prefer. Maybe time to look at WebAssembly + Rust
+ * plain Javascript: not a language that I prefer. Maybe time to look at WebAssembly + Rust
  * [font awesome](https://fortawesome.com/): for epic icons
 
 #### CI/CD

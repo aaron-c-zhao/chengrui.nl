@@ -27,10 +27,12 @@
             {%- assign all_tags = tags | strip | split: "," | uniq | sort -%}
             {%- for tag in all_tags -%}
                 {%- if tag != "" -%}
-                    <span class="post--tag">{{tag | upcase}}</span>
+                    {%- assign class = "post--tag post--tag__" | append: tag -%}
+                    <span class="{{ class }}">{{tag | upcase}}</span>
                 {%- endif -%}
             {%- endfor -%}
         </div>
         {%- include social.html -%}
     </div>
 </div>
+<script src="/assets/script/sidebar.js"></script>
