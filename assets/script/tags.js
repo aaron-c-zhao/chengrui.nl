@@ -1,15 +1,18 @@
-window.addEventListener('load', function() {
-        const sessionStorage = window.sessionStorage;
-
-    const read_tags = function() {
+document.addEventListener('DOMContentLoaded', function() {
+    const sessionStorage = window.sessionStorage;
+    const readTags = function() {
         let tags = sessionStorage.getItem('activatedTags');
-        tags = tags.split(',');
+        if (!tags) {
+            return [];
+        }
+        tags = tags.split(' ').filter(v => v);
+        
         console.log(tags);
         return tags;
     }
 
-    const selected_posts = function() {
-        const tmpResult = read_tags()
+    const selectedPosts = function() {
+        const tmpResult = readTags()
             .map(v => v.toLowerCase())
             .map(v => document.querySelectorAll('li.post--tag__' + v));
         let elements = new Set();
@@ -19,12 +22,21 @@ window.addEventListener('load', function() {
         return elements;
     }
 
-    const display_posts_with_tags = function() {
-        const elements = selected_posts();
-        for (e of elements) {
-            e.style.display = 'list-item';
+    const displayPostsWithTags = function() {
+        let allPosts = document.querySelectorAll('li.tagposts--link');
+        console.log(allPosts);
+        let elements = selectedPosts();
+        for (p of allPosts) {
+            if (elements.has(p)) {
+                p.style.display = 'list-item';
+            }
+            else {
+                p.style.display = 'none';
+            }
         }
     }
 
-    display_posts_with_tags();
+
+    window.addEventListener('load', displayPostsWithTags);
+    window.addEventListener('tagClicked', displayPostsWithTags);
 });
