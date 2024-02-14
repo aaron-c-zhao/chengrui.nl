@@ -40,7 +40,7 @@ body {
 .base--container {
   display: grid;
   min-width: 100vw;
-  grid-template-columns: 1.5fr 7fr 1.5fr;
+  grid-template-columns: 0.5fr 8fr 1.5fr;
   @media screen and (min-width: $on-medium) {
     grid-template-rows: max-content auto;
     grid-template-areas: "header header header"
