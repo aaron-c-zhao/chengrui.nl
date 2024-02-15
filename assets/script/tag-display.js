@@ -1,12 +1,9 @@
-import { displayPostsWithTags } from "./tag-util.js";
+import { displayPostsWithTags, clearSessionStorage } from "./tag-util.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     const sessionStorage = window.sessionStorage;
 
-
     window.addEventListener('load', () => displayPostsWithTags(sessionStorage));
     window.addEventListener('tagClicked', () => displayPostsWithTags(sessionStorage));
+    window.addEventListener('beforeunload', () => clearSessionStorage(sessionStorage));
 });
-
-//TODO: display style change when tag actiavetd
-//TODO: allow tags in the posts to be clickable too

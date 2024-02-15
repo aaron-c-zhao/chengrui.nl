@@ -36,6 +36,7 @@ sidebar_pages:
   - search.html
 
 about: pages/about.html
+tag_paget_path: tag
 show_excerpts: true
 
 minima:
