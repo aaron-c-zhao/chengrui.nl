@@ -485,6 +485,14 @@
 
     li.tagposts--link {
       display: none;
+
+      &:not(:last-of-type) {
+        margin-bottom: $spacing-unit * 0.4;
+      }
+      a {
+        @include relative-font-size(1.5);
+        color: $site-header-color;
+      }
     }
   }
 
