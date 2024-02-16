@@ -8,8 +8,6 @@
             return [];
         }
         tags = tags.split(' ').filter(v => v);
-        
-        console.log(tags);
         return tags;
     }
 
@@ -25,10 +23,52 @@
         return elements;
     }
 
+    const isTagActivated = function(activatedTags, tag) {
+        return activatedTags && activatedTags.indexOf(tag.textContent) >= 0;
+    }
+
+    export function displayTags(sessionStorage, allTags) {
+        let tagContainer = document.querySelector('.tag--all');
+        let children = Array.from(tagContainer.children);
+
+        // remove all tag element from tag container
+        // to achieve dynamic sorting
+        for (let child of children) {
+            tagContainer.removeChild(child);
+            console.log(child)
+        }
+        
+        // sort the tags by whether it's activated
+        let activatedTags = sessionStorage.getItem(itemName);
+        let sortedTags = Array.from(allTags);
+        sortedTags.sort((a, b) => {
+            if (isTagActivated(activatedTags, a) && !isTagActivated(activatedTags, b)) {
+                return -1;
+            }
+            else if (!isTagActivated(activatedTags, a) && isTagActivated(activatedTags, b)) {
+                return 1;
+            }
+            else return 0;
+        });
+        
+        // add back all tags 
+        for (let tag of sortedTags) {
+            let tagSpan = document.createElement('span');
+            tagSpan.innerHTML = tag.textContent;
+            tagSpan.classList.add('post--tag');
+
+            if (isTagActivated(activatedTags, tag)) {
+                tagSpan.classList.add('post--tag__active');
+            }
+
+            tagContainer.appendChild(tagSpan);
+        }
+        
+    }
+
     // display posts with active tags
     export function displayPostsWithTags(sessionStorage) {
         let allPosts = document.querySelectorAll('li.tagposts--link');
-        console.log(allPosts);
         let elements = selectedPosts(sessionStorage);
         for (let p of allPosts) {
             if (elements.has(p)) {

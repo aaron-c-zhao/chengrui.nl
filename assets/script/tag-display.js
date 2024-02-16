@@ -1,9 +1,16 @@
-import { displayPostsWithTags, clearSessionStorage } from "./tag-util.js";
+import { displayPostsWithTags, clearSessionStorage, displayTags } from "./tag-util.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     const sessionStorage = window.sessionStorage;
+    const allTags = new Set(document.querySelectorAll('.post--tag'));
 
-    window.addEventListener('load', () => displayPostsWithTags(sessionStorage));
-    window.addEventListener('tagClicked', () => displayPostsWithTags(sessionStorage));
+    window.addEventListener('load', function() {
+        displayPostsWithTags(sessionStorage);
+        displayTags(sessionStorage, allTags);
+    });
+    window.addEventListener('tagClicked', function() {
+        displayPostsWithTags(sessionStorage);
+        displayTags(sessionStorage, allTags);
+    });
     window.addEventListener('beforeunload', () => clearSessionStorage(sessionStorage));
 });
