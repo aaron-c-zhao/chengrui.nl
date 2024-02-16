@@ -3,6 +3,7 @@ layout: post
 title:  "This is a page with a super long title, I would like to see how it wraps and whether it looks nice enough"
 date:   2024-01-14 22:16:29 +0200
 categories: jekyll update
+tags: Go ahead and edit it and  the site to see your change 
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

@@ -497,7 +497,13 @@
   }
 
   .tag--all {
-    
+
+    margin-bottom: $spacing-unit;
+
+    .post--tag {
+      display: inline-block;
+    }
+
     .post--tag__active {
       background-color: $text-decoration-color;
       color: white;
