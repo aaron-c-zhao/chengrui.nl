@@ -1,0 +1,19 @@
+---
+layout: base
+permalink: /tag
+---
+<div class="tag--container">
+    <div class="tag--all"></div>
+    <ul class="tagposts--list ">
+{%- for post in site.posts -%}
+    {%- assign post_classes = "" -%}
+    {%- for post_tag in post.tags -%}
+        {%- assign post_classes = post_classes | append: "post--tag__" | append: post_tag  | append: " " -%}
+    {%- endfor -%}
+        <li class="tagposts--link {{ post_classes }}">
+            <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+        </li>
+{%- endfor -%}
+    </ul>
+</div>
+<script type='module' src="/assets/script/tag-display.js"></script>
