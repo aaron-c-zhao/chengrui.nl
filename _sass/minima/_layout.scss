@@ -496,6 +496,14 @@
     }
   }
 
+  .tag--all {
+    
+    .post--tag__active {
+      background-color: $text-decoration-color;
+      color: white;
+    }
+  }
+
   
   
 }

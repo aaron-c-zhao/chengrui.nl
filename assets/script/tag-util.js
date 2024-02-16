@@ -60,6 +60,7 @@
             if (isTagActivated(activatedTags, tag)) {
                 tagSpan.classList.add('post--tag__active');
             }
+            tagSpan.addEventListener('click', () => alterActiveTags(sessionStorage, tag.textContent))
 
             tagContainer.appendChild(tagSpan);
         }
