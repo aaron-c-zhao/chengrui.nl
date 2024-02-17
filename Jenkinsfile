@@ -10,15 +10,20 @@ def jekyll_env = {
     }
 }
 
+def uid = '1001'
+def gid = '1001'
+
 pipeline {
     agent {
         dockerfile {
             label 'pi'
-            args '-v /tmp:/tmp -u root:root'
+            args "-v /tmp:/tmp -u ${uid}:${gid}"
+            additionalBuildArgs "--build-arg USR_ID=${uid}"
         }
     }
     environment {
         JEKYLL_ENV=jekyll_env()
+        BUNDLE_PATH='/home/jenkins/gems'
     }
     stages{
         stage('Build') {
@@ -28,8 +33,9 @@ pipeline {
                 }
             }
             steps{
+                sh 'bundle config set --local path .gems'
                 echo '>>>> Installing gems <<<<'
-                sh 'bundle install'
+                sh "bundle install"
                 echo '>>>> Build site <<<<'
                 sh 'bundle exec jekyll build'
             }
