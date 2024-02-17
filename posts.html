@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Chengrui’s Blog" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"GitHub User"},"description":"blog","headline":"Chengrui’s Blog","url":"/404.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"GitHub User"},"description":"blog","headline":"Chengrui’s Blog","url":"/posts.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Chengrui&apos;s Blog" />
 </head>
@@ -69,27 +69,42 @@
 </div><!-- <a class="site-nav__about page-link" rel="me" href="/about/">About</a> --></header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-          <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
-
+          <!-- site.posts return list of posts in reverse chronological order -->
+<!-- iterate through all post and create a list whenever new year is encountered --><ul class="posts--year">
+    <figcaption class="posts--caption">2024</figcaption><li class="posts--item">
+        <h3>
+            <span class="posts--date">Jan 14</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a class="posts--link" href="/jekyll/update/2024/01/14/second-post.html">
+            This is a page with a super long title, I would like to see how it wraps and whether it looks nice enough
+            </a>
+        </h3>
+    </li><li class="posts--item">
+        <h3>
+            <span class="posts--date">Jan 14</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a class="posts--link" href="/jekyll/update/2024/01/14/second-post-copy.html">
+            This is a page with a super long title, I would like to see how it wraps and whether it looks nice enough
+            </a>
+        </h3>
+    </li><li class="posts--item">
+        <h3>
+            <span class="posts--date">Jan 14</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a class="posts--link" href="/jekyll/update/2024/01/14/second-post-copy-2.html">
+            This is a page with a super long title, I would like to see how it wraps and whether it looks nice enough
+            </a>
+        </h3>
+    </li></ul><ul class="posts--year">
+    <figcaption class="posts--caption">2023</figcaption><li class="posts--item">
+        <h3>
+            <span class="posts--date">Sep 10</span>
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a class="posts--link" href="/jekyll/update/2023/09/10/welcome-to-jekyll.html">
+            Welcome to Jekyll!
+            </a>
+        </h3>
+    </li></ul>
         </div>
       </main>
     </div>
