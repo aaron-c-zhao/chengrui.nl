@@ -8,7 +8,7 @@ permalink: /tag/
 {%- for post in site.posts -%}
     {%- assign post_classes = "" -%}
     {%- for post_tag in post.tags -%}
-        {%- assign post_classes = post_classes | append: "post--tag__" | append: post_tag  | append: " " -%}
+        {%- assign post_classes = post_classes | append: "post--tag__" | append: post_tag  | downcase | append: " " -%}
     {%- endfor -%}
         <li class="tagposts--link {{ post_classes }}">
             <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
