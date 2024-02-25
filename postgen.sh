@@ -16,7 +16,7 @@ echo "Enter the title:"
 read title
 
 # convert title into - sepearted
-ftitle=$(echo "${title}" | sed 's/ /-/')
+ftitle=$(echo "${title}" | sed 's/ /-/g')
 
 # determine date
 date="$(date '+%Y-%m-%d %H:%M:%S %z')"
@@ -35,7 +35,7 @@ touch "${file}"
 # write template to post file
 echo "---" >> $file
 echo "layout: post" >> $file
-echo "title: \"${title}\"" >> $file
+echo "title: \"${title~}\"" >> $file
 echo "date: ${date}" >> $file
 echo "tag: " >> $file
 echo "---" >> $file
